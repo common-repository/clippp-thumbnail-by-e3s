@@ -1,0 +1,89 @@
+# Copyright (C) 2016 WordPress
+# This file is distributed under the same license as the WordPress package.
+msgid ""
+msgstr ""
+"Project-Id-Version: WordPress 4.6-alpha-37280\n"
+"Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
+"POT-Creation-Date: 2016-04-22 02:46+0900\n"
+"PO-Revision-Date: 2016-04-22 02:51+0900\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.7\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SearchPath-0: .\n"
+
+# Description of the plugin/theme
+msgid "This plug-in to create a thumbnail. Thumbnail is divided into the specified categories, users can switch the display. To preview the video, click on the thumbnail image."
+msgstr "Clippp thumbnailはサムネイルを作成します。"
+
+#: clippp-thumbnail.php:55
+#, php-format
+msgid "Clone is not allowed against %s"
+msgstr "%sクラスはシングルトンです。複数の作成はできません。"
+
+#: clippp-thumbnail.php:204
+msgid "Use as thumbnail"
+msgstr "サムネイルとして使用"
+
+#: clippp-thumbnail.php:211
+msgid "Video URL"
+msgstr "動画URL"
+
+#: clippp-thumbnail.php:220
+msgid "Video category"
+msgstr "動画カテゴリ"
+
+#: clippp-thumbnail.php:229
+msgid "Add slider"
+msgstr "スライダーを追加"
+
+#: clippp-thumbnail.php:247
+msgid "Unchecked."
+msgstr "解除しました。"
+
+#: clippp-thumbnail.php:252
+msgid "Please enter URL."
+msgstr "URLを入力してください。"
+
+#: clippp-thumbnail.php:263
+msgid "Updated."
+msgstr "更新しました。"
+
+#: clippp-thumbnail.php:266
+msgid "URL type is invalid."
+msgstr "不正なURLです。"
+
+#: clippp-thumbnail.php:269
+msgid "Please enter valid URL."
+msgstr "有効なURLを入力してください。"
+
+#: clippp-thumbnail.php:395
+msgid "video URL for thumbnail"
+msgstr "サムネイルに使用する動画"
+
+#: clippp-thumbnail.php:400
+msgid "Submit"
+msgstr "更新"
+
+#: clippp-thumbnail.php:402
+msgid "You can get thumbnail from movie that saved in youtube or vimeo."
+msgstr "youtubeやvimeoの動画をサムネイルプレビューとして登録します。"
+
+#: thumbnail-template.php:20
+msgid "Other"
+msgstr "その他"
+
+#: thumbnail-template.php:46
+msgid "Clippp thumbnail has nothing to show."
+msgstr "サムネイルとして表示できるものはありません。"
+
+#: thumbnail-template.php:50
+#, fuzzy
+msgid "All"
+msgstr "全て"

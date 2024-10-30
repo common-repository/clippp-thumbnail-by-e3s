@@ -1,0 +1,76 @@
+/**
+ * Template: sydney
+ * Theme Name: Cilppp
+ */
+
+.page-wrap .content-wrapper {
+    background-color: inherit;
+}
+
+.form-control {
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .col-sm-offset-2 {
+        margin-left: 16.66666667%;
+    }
+}
+
+
+
+.row > section + section {
+    margin-top: 20px;
+}
+
+.content-area .hentry {
+    padding: 10px 15px;
+}
+
+.content-area .hentry.has-post-thumbnail {
+    padding-left: 120px;
+}
+
+.content-area .hentry .meta-post > span {
+    margin: 0;
+    display: block;
+}
+
+.content-area .hentry:nth-child(2n + 1) {
+    clear: both;
+}
+
+.content-area .hentry:after {
+    content: none;
+}
+
+.content-area .hentry:first-child {
+    padding-top: 10px;
+}
+
+.hentry .entry-thumb {
+    margin-bottom: 0;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+}
+
+.hentry .entry-thumb > a {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.hentry .entry-thumb > a > img {
+    margin: auto 0;
+    position: absolute;
+    top: -9999px;
+    left: 0;
+    right: 0;
+    bottom: -9999px;
+    width: 100%;
+}

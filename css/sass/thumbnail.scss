@@ -1,0 +1,313 @@
+@import "compass";
+@import "mixin";
+
+$bg-color: #eee;
+$cat-color: darken($bg-color, 24.5%);
+$primary: #d65050;
+$min-video-width: 120px;
+$max-video-width: 244px;
+$show_animation_duration: 0.3s;
+$animation-timing: cubic-bezier(0.25, 0.1, 0.25, 1.0);
+
+.alert {
+    $warning-text: #a94442;
+    $warning-bg: #f2dede;
+    margin: 20px auto 0;
+    padding: 10px 15px;
+    border: 1px solid darken(adjust-hue($warning-bg, -10), 5%);
+    @include border-radius(4px);
+    color: $warning-text;
+    width: 80%;
+    > p {
+        margin: 0;
+    }
+}
+
+
+
+#clippp-thumbnail-wrapper, .like-clippp-thumbnail-wrapper {
+    $cat_size: 1.5em;
+    * {
+        font-family: 'ヒラギノ角ゴ Pro W3' 'MS UI Gothic' 'ＭＳ ゴシック' !important;
+    }
+    > header {
+        text-align: center;
+        font-size: 0;
+        > input[type=radio] {
+            display: none;
+            &:checked + label {
+                @include cat_active;
+                &:after {
+                    @include cat_active;
+                }
+            }
+        }
+        > label {
+            @extend %cat-label;
+        }
+        
+        &:after {
+            content: "";
+            display: block;
+            height: 0;
+            font-size: 0;
+            clear: both;
+            visibility: hidden;
+        }
+    }
+}
+
+#clippp-thumbnail, .like-clippp-thumbnail {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    position: relative;
+    > li {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+
+        &.show {
+            &:before {
+                padding-top: (9% / 16 * 100);
+                content: "";
+                display: block;
+            }
+            width: 25%;
+            > div {
+                @include animation(box_show_animation $show_animation_duration $animation-timing)
+            }
+        }
+        
+        &.transition {
+            @include transition($show_animation_duration $animation-timing);
+            width: 25%;
+        }
+
+        > div {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        &:not(.show).transition {
+            @include animation(box_wrapper_hide_animation $show_animation_duration $animation-timing);
+            > div {
+                @include animation(box_hide_animation $show_animation_duration $animation-timing);
+            }
+        }
+
+        > div.loading {
+            @extend %loading-animation;
+        }
+        > div > img {
+            position: absolute;
+            margin: auto 0;
+            top: -9999px;
+            bottom: -9999px;
+            width: 100%;
+        }
+        
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
+
+#clippp-preview-wrapper {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 5000;
+    display: none;
+    &.show {
+        display:block;
+        @include animation(preview_show $show_animation_duration $animation-timing 1);
+    }
+}
+
+#clippp-preview {
+    margin:  50px auto 0;
+    position: fixed;
+    left: 0;
+    right: 0;
+    width: 50%;
+    overflow: hidden;
+    
+    &:before {
+        padding-top: (9% / 16 * 100);
+        content: "";
+        display: block;
+    }
+    
+    > * {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        
+    }
+    
+}
+
+// label 
+
+%cat-label {
+    $cat_size: 1.5em;
+
+    margin: 0 0 1.4em 0;
+    padding: 7px 18px;
+    line-height: 1.5;
+    white-space: nowrap;
+    @include backface-visibility(hidden);
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    text-transform: none;
+    color: rgba(0, 0, 0, .5);
+    font-size: 14px;
+    background-color: rgba(0, 0, 0, .1);
+    
+    /*
+    // 日本語表示のため
+    > span > span {
+        padding-top: 3px;
+        display: block;
+        font-size: 8px;
+        border-top: 1px solid #ccc;
+        span {
+            display: none;
+        }
+    }
+    */
+    
+    /*
+    カテゴリ数表示のため
+    &:after {
+        content: attr(data-count);
+        @include inline-block;
+        position: absolute;
+        top: -10px;
+        right: -10px;
+        width: $cat_size;
+        font-size: 12px;
+        @include border-radius(50%);
+        border: 1px solid inherit;
+        background-color: #333;
+        color: #ddd;
+        //border-width: 1px;
+        //border-style: solid;
+        //border-color: $bg-color;
+        text-align: center;
+        //background-color: $cat-color;
+    }
+    */
+    
+}
+
+// loading animation
+
+%loading-animation {
+    width: 100%;
+    height: 100%;
+    &:before {
+        margin-left: -20px;
+        margin-top: -20px;
+        content: "";
+        display: block;
+        width: 40px;
+        height: 40px;
+        @include border-radius(50%);
+        background-color: #ccc;
+        @include opacity(0.6);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        @include animation(bounce 2.0s infinite ease-in-out);
+    }
+    &:after {
+        margin-left: -20px;
+        margin-top: -20px;
+        content: "";
+        display: block;
+        width: 40px;
+        height: 40px;
+        @include border-radius(50%);
+        background-color: #ccc;
+        @include opacity(0.6);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        @include animation(bounce 2.0s infinite -1.0s ease-in-out);
+    }
+}
+
+// animation keyframes
+
+@include keyframes(bounce) {
+    0%, 100% {
+        @include scale(0);
+    }
+    50% {
+        @include scale(1);
+    }
+}
+
+@include keyframes(preview_show) {
+    0% {
+        @include opacity(0);
+    }
+    100% {
+        @include opacity(1);
+    }
+}
+
+@include keyframes(box_show_animation) {
+    0% {
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        @include opacity(0);
+    }
+    100% {
+        width: 100%;
+        height: 100%;
+        @include opacity(1);
+    }
+}
+@include keyframes(box_hide_animation) {
+    100% {
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        @include opacity(0);
+    }
+    0% {
+        width: 100%;
+        height: 100%;
+        @include opacity(1);
+    }
+}
+
+@include keyframes(box_wrapper_hide_animation) {
+    0% {
+        width: 25%;
+        height: 100%;
+    }
+    100% {
+        width: 25%;
+        height: 100%;
+    }
+}

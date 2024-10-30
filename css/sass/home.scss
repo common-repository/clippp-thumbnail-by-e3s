@@ -1,0 +1,455 @@
+@import "compass";
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    position: relative;
+}
+
+#page {
+    height: 100%;
+}
+
+body *:not(.fa):not(.btn-menu) {
+    font-family: serif !important;
+}
+
+.panel-grid-cell .widget-title {
+    > .c {
+        font-size: 14px;
+        font-weight: normal;
+        display: block;
+    }
+    
+    text-transform: none;
+    counter-reset: price-box;
+}
+
+// masthead
+
+#masthead {
+    padding: 5px 0;
+    width: 100%;
+    position: relative;
+    top: 0;
+    left: 0;
+    background-color: white;
+    nav {
+        > a {
+            @include inline-block;
+            text-align: center;
+            line-height: 49px;
+            color: gray;
+            
+            + a {
+                margin-left: 15px;
+            }
+
+            > img {
+                width: auto;
+                height: 49px;
+            }
+            
+            > span:last-child {
+                display: none;
+            }
+            
+            &:first-child {
+                float: left;
+            }
+            
+            &:not(:first-child) {
+                float: right;
+            }
+            
+            &:hover {
+                > span:first-child {
+                    display: none;
+                }
+                > span:last-child {
+                    display: inline;
+                }
+            }
+        }
+    }
+    
+    &.fixed {
+        position: fixed !important;
+        top: 0;
+        border-bottom: 1px solid #eaeaea;
+        ~ #intro {
+            margin-top: 60px + 22px;
+        }
+    }
+}
+
+#intro {
+    margin-top: 22px;
+    width: 100%;
+    background-color: #d65050;
+    h1 {
+        margin: 0;
+        padding: 0;
+        color: white;
+        letter-spacing: 5.5px;
+    }
+}
+
+// Price
+
+#price-wrapper .panel-grid-cell {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    @include display-flex;
+    @include flexbox((
+        flex-wrap: wrap,
+        align-items: space-between,
+        justify-content: space-between,
+    ));
+    
+    h2, .special-price-box {
+        @include flex(0 0 100%)
+    }
+    
+    .price-box {
+        @include flex(0 0 100%);
+        @media (min-width: 768px) {
+            @include flex(0 0 30%);
+        }
+    }
+}
+
+%price-box-base {
+    display: inline-block;
+    position: relative;
+    border-style: solid;
+    border-width: 1px;
+    overflow: hidden;
+    
+    > hr {
+        margin: 0;
+        border: 0;
+        text-align: center;
+        font-weight: 900;
+    }
+    
+    > * {
+        display: inline-block;
+    }
+}
+
+.price-box, .special-price-box {
+    @extend %price-box-base;
+    // @include box-shadow(0 10px 6px -6px #777);
+    font-family: "Raleway", sans-serif;
+}
+
+.price-box {
+    margin-bottom: 22px;
+    counter-increment: price-box;
+    
+    > * {
+        position: absolute;
+    }
+    
+    &:before {
+        padding-top: (100% * 9 / 16);
+        display: block;
+        content: "";
+    }
+    
+    > hr {
+        height: 50%;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 50%;
+        color: white;
+        
+        &:before, &:after {
+            display: inline;
+            font-weight: 900;
+        }
+        
+        &:before {
+            padding-right: 5px;
+            content: counter(price-box);
+            width: 50%;
+            font-size: 47px;
+            background-color: transparent;
+            // @include box-shadow(-3px -3px 3px rgba(255, 255, 255, 0.4) inset, 3px 3px 3px rgba(255, 255, 255, 0.4) inset);
+            text-align: right;
+        }
+        
+        &:after {
+            padding-left: 5px;
+            font-size: 32px;
+            text-transform: none;
+            text-align: left;
+            text-transform: none;
+        }
+    }
+    
+    > span {
+        top: 50%;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        text-align: center;
+        font-size: 40px;
+        font-weight: 700;
+        color: white;
+        
+        &:before {
+            content: "¥";
+        }
+        
+        &:after {
+            content: "注文する";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            right: 50%;
+            bottom: 50%;
+            color: white;
+            overflow: hidden;
+            font-size: 25px;
+            @include transition(.3s);
+        }
+    }
+    
+    &:nth-of-type(1) > hr:after {
+        content:  "clip";
+    }
+    
+    &:nth-of-type(2) > hr:after {
+        content:  "clip";
+    }
+    
+    &:nth-of-type(3) > hr:after {
+        content: "clippp";
+    }
+    
+    &:hover {
+        
+        > hr {
+            color: inherit;
+        }
+        
+        > span:after {
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+    }
+}
+
+
+.special-price-box {
+    
+    @include display-flex;
+    @include flexbox((
+        flex-wrap: wrap,
+        align-items: center,
+        justify-content: space-between,
+    ));
+    
+    &:hover {
+        text-decoration: none;
+    }
+    /*
+    > hr, > span:nth-of-type(1) {
+        width: 60%;
+        text-align: center;
+    }
+    */
+    > hr, > span:nth-of-type(1) {
+        @include flex(0 0 100%);
+        text-align: center;
+        @media (min-width: 768px) {
+            @include flex(1 1 auto);
+        }
+    }
+    
+    > hr {
+        padding: 10px 0;
+        height: auto;
+        display: inline-block;
+        
+        &:before {
+            content: "Original option\A";
+            white-space: pre;
+            text-transform: none;
+            font-size: 32px;
+        }
+        
+        &:after {
+            content: "オリジナルオプション\A";
+            white-space: pre;
+            font-size: 80%;
+        }
+        
+    }
+    
+    > span:nth-of-type(2) {
+        @include flex(0 0 100%);
+        font-size: 45px;
+        font-weight: 700;
+        text-align: center;
+        position: relative;
+        
+
+        @media (min-width: 768px) {
+            @include flex(1 1 auto);
+        }
+
+        &:before {
+            content: "+¥";
+        }
+        
+        &:after {
+            content: "注文する";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            right: 50%;
+            bottom: 50%;
+            //color: white;
+            overflow: hidden;
+            font-size: 32px;
+            @include transition(.3s);
+        }
+    }
+
+    &:hover {
+        
+        > span:nth-of-type(2) {
+            
+            color: white;
+            
+            &:after {
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+            }
+        }
+    }
+}
+
+// Contact
+
+.form-group {
+    
+    .form-control {
+        font-size: 16px;
+        text-align: center;
+    }
+    
+    @media (min-width: 768px) {
+        margin: 0 auto;
+        width: 70%;
+    }
+    
+    @media (min-width: 992px) {
+        margin: 0 auto;
+        width: 50%;
+    }
+    
+    @media (min-width: 1200px) {
+        width: 30%;
+    }
+}
+
+
+#front-movie {
+    $gh: 100% * 9 / 16;
+    $vh: 100% / 2.35;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-color: black;
+    overflow: hidden;
+    * {
+        font-family: sans-serif !important;
+    }
+    
+    &:after {
+        margin-top: ($gh - $vh) / 2;
+        margin-bottom: ($gh - $vh) / 2;
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(255, 255, 255, .4);
+        z-index: 3000;
+    }
+
+    > * {
+        position: absolute;
+        left: 0;
+
+        &.title {
+            margin: 0 auto;
+            top: 45%;
+            width: 100%;
+            font-weight: 500;
+            font-size: 52px;
+            color: white;
+        }
+        
+        &.player {
+            margin-top: ($gh - $vh) / 2;
+            margin-bottom: ($gh - $vh) / 2;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+            overflow: hidden;
+
+            > video {
+                margin: auto auto 9999px 9999px;
+                position: absolute;
+                top: -9999px;
+                left: -9999px;
+                right: -9999px;
+                bottom: -9999px;
+                min-width: 100%;
+                min-height: 100%;
+            }
+            
+        }
+        
+        &.toc {
+            margin-bottom: ($gh - $vh) / 2;
+            width: 100%;
+            bottom: 0;
+            font-size: 20px;
+            display: block;
+            z-index: 3001;
+            color: white;
+            
+            &:hover {
+                text-decoration: none;
+            }
+
+            &:after {
+                margin: auto;
+                content: "\f078";
+                display: block;
+                font: normal normal normal 14px/1 FontAwesome;
+                font-size: inherit;
+                text-rendering: auto;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale
+            }
+        }
+        
+        
+    }
+}

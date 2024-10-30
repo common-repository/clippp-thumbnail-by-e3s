@@ -1,0 +1,58 @@
+/*
+Error: Invalid CSS after "    top: ": expected expression (e.g. 1px, bold), was ";"
+        on line 295 of /home/ubuntu/workspace/wp-content/plugins/clippp-thumbnail-by-e3s/css/sass/home.scss
+
+290: 
+291: #front-movie {
+292:     padding-top: (100% * 9 / 16);
+293:     width: 100%;
+294:     position: absolute;
+295:     top: ;
+296:     left: 0;
+297:     right: 0;
+298:     background-color: black;
+299:     z-index: 3000;
+300:     overflow: hidden;
+
+Backtrace:
+/home/ubuntu/workspace/wp-content/plugins/clippp-thumbnail-by-e3s/css/sass/home.scss:295
+/usr/local/rvm/gems/ruby-2.3.0/gems/sass-3.4.22/lib/sass/scss/parser.rb:1189:in `expected'
+/usr/local/rvm/gems/ruby-2.3.0/gems/sass-3.4.22/lib/sass/script/lexer.rb:229:in `expected!'
+/usr/local/rvm/gems/ruby-2.3.0/gems/sass-3.4.22/lib/sass/script/parser.rb:704:in `assert_expr'
+/usr/local/rvm/gems/ruby-2.3.0/gems/sass-3.4.22/lib/sass/script/parser.rb:75:in `parse'
+/usr/local/rvm/gems/ruby-2.3.0/gems/sass-3.4.22/lib/sass/scss/parser.rb:1051:in `sass_script'
+/usr/local/rvm/gems/ruby-2.3.0/gems/sass-3.4.22/lib/sass/scss/parser.rb:897:in `value!'
+/usr/local/rvm/gems/ruby-2.3.0/gems/sass-3.4.22/lib/sass/scss/parser.rb:769:in `block in try_declaration'
+/usr/local/rvm/gems/ruby-2.3.0/gems/sass-3.4.22/lib/sass/scss/parser.rb:1165:in `rethrow'
+/usr/local/rvm/gems/ruby-2.3.0/gems/sass-3.4.22/lib/sass/scss/parser.rb:782:in `try_declaration'
+/usr/local/rvm/gems/ruby-2.3.0/gems/sass-3.4.22/lib/sass/scss/parser.rb:711:in `declaration_or_ruleset'
+/usr/local/rvm/gems/ruby-2.3.0/gems/sass-3.4.22/lib/sass/scss/parser.rb:676:in `block_child'
+/usr/local/rvm/gems/ruby-2.3.0/gems/sass-3.4.22/lib/sass/scss/parser.rb:668:in `block_contents'
+/usr/local/rvm/gems/ruby-2.3.0/gems/sass-3.4.22/lib/sass/scss/parser.rb:657:in `block'
+/usr/local/rvm/gems/ruby-2.3.0/gems/sass-3.4.22/lib/sass/scss/parser.rb:649:in `ruleset'
+/usr/local/rvm/gems/ruby-2.3.0/gems/sass-3.4.22/lib/sass/scss/parser.rb:675:in `block_child'
+/usr/local/rvm/gems/ruby-2.3.0/gems/sass-3.4.22/lib/sass/scss/parser.rb:668:in `block_contents'
+/usr/local/rvm/gems/ruby-2.3.0/gems/sass-3.4.22/lib/sass/scss/parser.rb:125:in `stylesheet'
+/usr/local/rvm/gems/ruby-2.3.0/gems/sass-3.4.22/lib/sass/scss/parser.rb:41:in `parse'
+/usr/local/rvm/gems/ruby-2.3.0/gems/sass-3.4.22/lib/sass/engine.rb:406:in `_to_tree'
+/usr/local/rvm/gems/ruby-2.3.0/gems/sass-3.4.22/lib/sass/engine.rb:381:in `_render_with_sourcemap'
+/usr/local/rvm/gems/ruby-2.3.0/gems/sass-3.4.22/lib/sass/engine.rb:298:in `render_with_sourcemap'
+/usr/local/rvm/gems/ruby-2.3.0/gems/sass-3.4.22/lib/sass/plugin/compiler.rb:492:in `update_stylesheet'
+/usr/local/rvm/gems/ruby-2.3.0/gems/sass-3.4.22/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
+/usr/local/rvm/gems/ruby-2.3.0/gems/sass-3.4.22/lib/sass/plugin/compiler.rb:209:in `each'
+/usr/local/rvm/gems/ruby-2.3.0/gems/sass-3.4.22/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
+/usr/local/rvm/gems/ruby-2.3.0/gems/sass-3.4.22/lib/sass/plugin.rb:82:in `update_stylesheets'
+/usr/local/rvm/gems/ruby-2.3.0/gems/sass-3.4.22/lib/sass/exec/sass_scss.rb:340:in `watch_or_update'
+/usr/local/rvm/gems/ruby-2.3.0/gems/sass-3.4.22/lib/sass/exec/sass_scss.rb:51:in `process_result'
+/usr/local/rvm/gems/ruby-2.3.0/gems/sass-3.4.22/lib/sass/exec/base.rb:52:in `parse'
+/usr/local/rvm/gems/ruby-2.3.0/gems/sass-3.4.22/lib/sass/exec/base.rb:19:in `parse!'
+/usr/local/rvm/gems/ruby-2.3.0/gems/sass-3.4.22/bin/scss:13:in `<top (required)>'
+/usr/local/rvm/gems/ruby-2.3.0/bin/scss:22:in `load'
+/usr/local/rvm/gems/ruby-2.3.0/bin/scss:22:in `<main>'
+/usr/local/rvm/gems/ruby-2.3.0/bin/ruby_executable_hooks:15:in `eval'
+/usr/local/rvm/gems/ruby-2.3.0/bin/ruby_executable_hooks:15:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Invalid CSS after \"    top: \": expected expression (e.g. 1px, bold), was \";\"\A         on line 295 of /home/ubuntu/workspace/wp-content/plugins/clippp-thumbnail-by-e3s/css/sass/home.scss\A \A 290: \A 291: #front-movie {\A 292:     padding-top: (100% * 9 / 16);\A 293:     width: 100%;\A 294:     position: absolute;\A 295:     top: ;\A 296:     left: 0;\A 297:     right: 0;\A 298:     background-color: black;\A 299:     z-index: 3000;\A 300:     overflow: hidden;"; }
